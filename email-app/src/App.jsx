@@ -4,6 +4,7 @@ import Header from './components/Header'
 import styles from './App.module.css'
 import Sidebar from './components/Sidebar'
 import Email from './components/Email'
+import ListOfEmails from './components/ListOfEmails'
 
 const App = () => {
   const [model, setModel] = useState(null)
@@ -39,8 +40,7 @@ const App = () => {
       <Header />
       <main className={styles.content}>
         <Sidebar />
-        <p>hola</p>
-
+        <ListOfEmails />
       </main>
       <Email />
     </>

@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <h1>Inbox ClasifAI</h1>
-      <p>Profile</p>
+      <p>Proyecto Redes Neuronales</p>
     </header>
   )
 }

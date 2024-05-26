@@ -10,6 +10,10 @@
 .sidebar section {
     cursor: pointer;
     transition: all 200ms ease;
+
+    :nth-child(1) {
+        padding: 0 1rem;
+    }
 }
 
 .active {

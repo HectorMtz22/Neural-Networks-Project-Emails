@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import * as tf from '@tensorflow/tfjs'
 import Header from './Header'
+import styles from './App.module.css'
+import Sidebar from './Sidebar'
 
 const App = () => {
   const [model, setModel] = useState(null)
@@ -34,6 +36,11 @@ const App = () => {
       </button>
       {prediction && <div>Predicción: {prediction}</div>} */}
       <Header />
+      <main className={styles.content}>
+        <Sidebar />
+        <p>hola</p>
+
+      </main>
     </>
   )
 }

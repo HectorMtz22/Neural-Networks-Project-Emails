@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 // Hook que mantiene el estado de la tab activa con el urlparam
-const useTabs = () => {
+function useTabs () {
   const [activeTab, setActiveTab] = useState('/')
   useEffect(() => {
     const param = new URLSearchParams(window.location.search).get('tab') ?? '/'

@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import styles from './styles.module.css'
+import useEmails from '../../hooks/useEmails'
 
 const Email = () => {
   const [isVisible, setIsVisible] = useState(true)
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+  const { addEmail } = useEmails()
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    const data = { title, content }
+    addEmail(data)
 
     setTitle('')
     setContent('')
@@ -22,7 +26,7 @@ const Email = () => {
 
       </section>
       {isVisible && (
-        <form className={styles.email_container} onSubmit={handleSubmit}>
+        <form className={styles.email_container} onSubmit={handleSubmit} method='post'>
           <p>
             <strong>Para: </strong>
             <span>

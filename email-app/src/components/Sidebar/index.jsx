@@ -1,3 +1,4 @@
+import useTabs from '../../hooks/useTabs'
 import styles from './styles.module.css'
 
 // const tabs = [
@@ -15,14 +16,17 @@ const tabs = [
 ]
 
 const Sidebar = () => {
-  const activeTab = 0
+  const { activeTab, setTab } = useTabs()
+  console.log(activeTab)
+
   return (
     <article className={styles.sidebar}>
       <span>Bandeja de Entrada</span>
       {tabs.map((tab, index) => (
         <section
           key={index}
-          className={index === activeTab ? styles.active : ''}
+          className={tab.key === activeTab ? styles.active : ''}
+          onClick={() => setTab(tab.key)}
         >
           <span>
             {tab.icon}

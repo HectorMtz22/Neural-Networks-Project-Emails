@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import * as tf from '@tensorflow/tfjs'
+import Header from './Header'
 
 const App = () => {
   const [model, setModel] = useState(null)
@@ -26,13 +27,14 @@ const App = () => {
   }
 
   return (
-    <div>
-      <h1>TensorFlow.js en React</h1>
+    <>
+      {/* <h1>TensorFlow.js en React</h1>
       <button onClick={() => makePrediction('text')}>
         Hacer Predicción
       </button>
-      {prediction && <div>Predicción: {prediction}</div>}
-    </div>
+      {prediction && <div>Predicción: {prediction}</div>} */}
+      <Header />
+    </>
   )
 }
 

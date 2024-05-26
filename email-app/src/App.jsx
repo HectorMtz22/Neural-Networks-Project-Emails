@@ -3,6 +3,7 @@ import * as tf from '@tensorflow/tfjs'
 import Header from './components/Header'
 import styles from './App.module.css'
 import Sidebar from './components/Sidebar'
+import Email from './components/Email'
 
 const App = () => {
   const [model, setModel] = useState(null)
@@ -41,6 +42,7 @@ const App = () => {
         <p>hola</p>
 
       </main>
+      <Email />
     </>
   )
 }

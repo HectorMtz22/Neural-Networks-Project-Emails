@@ -12,6 +12,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #root {
   width: 80%;
   margin: auto;
@@ -41,10 +45,11 @@ button {
   background-color: #1a1a1a;
   color: aliceblue;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
 button:hover {
   border-color: #646cff;
+  background-color: #4b4b4b;
 }
 button:focus,
 button:focus-visible {

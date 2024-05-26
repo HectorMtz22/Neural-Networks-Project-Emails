@@ -49,3 +49,7 @@
     min-height: 5ch;
     max-height: 40ch;
 }
+
+.button {
+    width: 100%;
+}

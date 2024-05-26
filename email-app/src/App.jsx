@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import * as tf from '@tensorflow/tfjs'
-import Header from './Header'
+import Header from './components/Header'
 import styles from './App.module.css'
-import Sidebar from './Sidebar'
+import Sidebar from './components/Sidebar'
 
 const App = () => {
   const [model, setModel] = useState(null)

@@ -31,7 +31,12 @@ const Sidebar = () => {
           <span>
             {tab.icon}
           </span>
-          {tab.title}
+          <span>
+            {tab.title}
+          </span>
+          <span>
+            0
+          </span>
         </section>
       ))}
 

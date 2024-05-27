@@ -8,11 +8,16 @@ const ListOfEmails = () => {
     <article className={styles.content}>
       {emails.map((email) => (
         <section key={email.id} className={styles.email}>
-          <h3>
-            Título:
-            <strong> {email.title}
-            </strong>
-          </h3>
+          <section className={styles.email_header}>
+            <h3>
+              Título:
+              <strong> {email.title}
+              </strong>
+            </h3>
+            <button>
+              <h2>X</h2>
+            </button>
+          </section>
           <hr />
           <span>{email.content}</span>
         </section>

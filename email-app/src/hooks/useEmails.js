@@ -1,16 +1,25 @@
-import { useState, useEffect, useContext } from 'react'
+import { useEffect, useContext, useRef } from 'react'
 import { Context } from '../context/root'
 import useTabs from './useTabs'
+import make from '../services/makePrediction'
 
-const tabs = [
-  { title: 'Importante', icon: '⚠️', key: 'important' },
-  { title: 'Pregunta', icon: '❓', key: 'question' },
-  { title: 'Confirmación', icon: '👍', key: 'confirm' },
-  { title: 'Informativo', icon: 'ℹ️', key: 'info' }
-]
+import * as tf from '@tensorflow/tfjs'
+
+const makePrediction = async (inputData) => {
+  const model = await tf.loadLayersModel('/model-js/model.json')
+  if (model) {
+    // Tokenizar el texto
+    const inputTensor = tf.tensor([inputData])
+    const output = model.predict(inputTensor)
+    const prediction = output.dataSync()
+    return prediction
+  }
+}
+
 function useEmails () {
   const { emails, setEmails } = useContext(Context)
   const { activeTab } = useTabs()
+  const generatorRef = useRef(make())
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('emails')) ?? []
@@ -18,8 +27,8 @@ function useEmails () {
   }, [])
 
   function addEmail (email) {
-    const classificationNumber = Math.round(Math.random() * 3)
-    const newEmail = { ...email, id: emails.length + 1, key: tabs[classificationNumber].key }
+    const key = generatorRef.current.next().value
+    const newEmail = { ...email, id: emails.length + 1, key }
     const newList = emails.concat(newEmail)
     localStorage.setItem('emails', JSON.stringify(newList))
     console.log('yes men')

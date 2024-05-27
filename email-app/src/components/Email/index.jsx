@@ -39,6 +39,7 @@ const Email = () => {
             placeholder='Título'
             onChange={(e) => setTitle(e.target.value)}
             value={title}
+            required
           />
           <textarea
             name='content'
@@ -48,6 +49,7 @@ const Email = () => {
             placeholder='Contenido'
             onChange={(e) => setContent(e.target.value)}
             value={content}
+            required
           />
 
           <button className={styles.button}>

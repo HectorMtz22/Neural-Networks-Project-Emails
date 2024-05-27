@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { Context } from '../context/root'
 import useTabs from './useTabs'
 
 const tabs = [
@@ -8,7 +9,7 @@ const tabs = [
   { title: 'Informativo', icon: 'ℹ️', key: 'info' }
 ]
 function useEmails () {
-  const [emails, setEmails] = useState([])
+  const { emails, setEmails } = useContext(Context)
   const { activeTab } = useTabs()
 
   useEffect(() => {

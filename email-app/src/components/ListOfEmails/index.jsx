@@ -2,8 +2,14 @@ import useEmails from '../../hooks/useEmails'
 import styles from './styles.module.css'
 
 const ListOfEmails = () => {
-  const { emails } = useEmails()
+  const { emails, deleteEmail } = useEmails()
   if (!emails) return null
+
+  const handleRemove = (id) => {
+    const isRemove = confirm('¿Estás seguro de eliminar este correo?')
+    isRemove && deleteEmail(id)
+  }
+
   return (
     <article className={styles.content}>
       {emails.map((email) => (
@@ -14,7 +20,7 @@ const ListOfEmails = () => {
               <strong> {email.title}
               </strong>
             </h3>
-            <button>
+            <button onClick={() => handleRemove(email.id)}>
               <h2>X</h2>
             </button>
           </section>

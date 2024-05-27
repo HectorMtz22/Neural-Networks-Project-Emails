@@ -19,7 +19,7 @@ function useEmails () {
   function addEmail (email) {
     const classificationNumber = Math.round(Math.random() * 3)
     const newEmail = { ...email, id: emails.length + 1, key: tabs[classificationNumber].key }
-    const newList = [...emails, newEmail]
+    const newList = emails.concat(newEmail)
     localStorage.setItem('emails', JSON.stringify(newList))
     console.log('yes men')
     setEmails(newList)
@@ -34,7 +34,13 @@ function useEmails () {
     return emails
   }
 
-  return { emails: getEmails(), addEmail, getAllEmails }
+  const deleteEmail = (id) => {
+    const newList = emails.filter((email) => email.id !== id)
+    localStorage.setItem('emails', JSON.stringify(newList))
+    setEmails(newList)
+  }
+
+  return { emails: getEmails(), addEmail, getAllEmails, deleteEmail }
 }
 
 export default useEmails

@@ -16,7 +16,7 @@ const ListOfEmails = () => {
         <section key={email.id} className={styles.email}>
           <section className={styles.email_header}>
             <h3>
-              Título:
+              &gt;
               <strong> {email.title}
               </strong>
             </h3>

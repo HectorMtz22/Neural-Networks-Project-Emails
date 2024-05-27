@@ -6,3 +6,16 @@
 .not_found {
     text-align: center;
 }
+
+.email {
+    width: 80%;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+
+    font-size: 2rem;
+    h3 {
+        margin: 1rem 0;
+    }
+}

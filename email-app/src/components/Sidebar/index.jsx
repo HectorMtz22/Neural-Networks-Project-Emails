@@ -1,3 +1,4 @@
+import useEmails from '../../hooks/useEmails'
 import useTabs from '../../hooks/useTabs'
 import styles from './styles.module.css'
 
@@ -17,6 +18,8 @@ const tabs = [
 
 const Sidebar = () => {
   const { activeTab, setTab } = useTabs()
+  const { getAllEmails } = useEmails()
+  const emails = getAllEmails()
   console.log(activeTab)
 
   return (
@@ -35,7 +38,7 @@ const Sidebar = () => {
             {tab.title}
           </span>
           <span>
-            0
+            {emails.filter((email) => email.key === tab.key).length}
           </span>
         </section>
       ))}

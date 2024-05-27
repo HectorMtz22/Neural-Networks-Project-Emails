@@ -16,11 +16,11 @@ function useEmails () {
     setEmails(data)
   }, [])
 
-  async function addEmail (email) {
+  function addEmail (email) {
     const classificationNumber = Math.round(Math.random() * 3)
     const newEmail = { ...email, id: emails.length + 1, key: tabs[classificationNumber].key }
     const newList = [...emails, newEmail]
-    await localStorage.setItem('emails', JSON.stringify(newList))
+    localStorage.setItem('emails', JSON.stringify(newList))
     console.log('yes men')
     setEmails(newList)
     console.log('yes men')
@@ -30,7 +30,11 @@ function useEmails () {
     return emails.filter((email) => email.key === activeTab)
   }
 
-  return { getEmails, addEmail }
+  const getAllEmails = () => {
+    return emails
+  }
+
+  return { emails: getEmails(), addEmail, getAllEmails }
 }
 
 export default useEmails

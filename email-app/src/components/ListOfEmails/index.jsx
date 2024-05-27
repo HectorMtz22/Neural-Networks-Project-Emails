@@ -2,15 +2,19 @@ import useEmails from '../../hooks/useEmails'
 import styles from './styles.module.css'
 
 const ListOfEmails = () => {
-  const { getEmails } = useEmails()
-  const emails = getEmails()
+  const { emails } = useEmails()
   if (!emails) return null
   return (
     <article className={styles.content}>
       {emails.map((email) => (
         <section key={email.id} className={styles.email}>
-          <h3>{email.title}</h3>
-          <p>{email.content}</p>
+          <h3>
+            Título:
+            <strong> {email.title}
+            </strong>
+          </h3>
+          <hr />
+          <span>{email.content}</span>
         </section>
       ))}
       {
